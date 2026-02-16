@@ -67,6 +67,7 @@ jobs:
     - name: Test Docker image
       run: |
         # Run container in background
+        docker build -t ${{ env.DOCKER_IMAGE_NAME }}:test .
         docker run -d -p 3000:3000 --name test-container ${{ env.DOCKER_IMAGE_NAME }}:test
         
         # Wait for container to start
